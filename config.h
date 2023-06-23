@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 20;       /* vert inner gap between windows */
@@ -111,6 +111,7 @@ static const char *downlight[]      = { "/home/thejc/scripts/light-down.sh",  NU
 static const char *setcolemakcmd[]  = { "/home/thejc/scripts/setxmodmap-colemak.sh", NULL };
 static const char *setqwertycmd[]   = { "/home/thejc/scripts/setxmodmap-qwerty.sh", NULL };
 static const char *suspendcmd[]     = { "/home/thejc/scripts/suspend.sh", NULL };
+static const char *trayercmd[]      = { "/home/thejc/scripts/t-toggle.sh", NULL };
 static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 
 static const Key keys[] = {
@@ -176,6 +177,8 @@ static const Button buttons[] = {
 //	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
 //	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 //	{ ClkStatusText,        0,              Button2,        spawn,          {0} },
+	{ ClkLtSymbol,          0,              Button1,        spawn,          { .v = browsercmd } },
+	{ ClkWinTitle,          0,              Button1,        spawn,          { .v = trayercmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
